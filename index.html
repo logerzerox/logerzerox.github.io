@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Playable-Ad</title>
+    <title>PlayAble-Ad</title>
+    <!-- <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css"> -->
   </head>
   <body>
     <img onclick="CTAFunction()" class="banner" id="banner" src="/Vertical.webp"/>
@@ -19,12 +21,12 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <!-- <div id="unity-warning"> </div>
+      <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Tiny3D</div>
-      </div> -->
+      </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -32,7 +34,7 @@
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+      // var warningBanner = document.querySelector("#unity-warning");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -61,9 +63,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Ad2_FPS.loader.js";
       var config = {
-        dataUrl: buildUrl + "/04b8f681c455f29b6e50d70cb7764c6b.data.unityweb",
-        frameworkUrl: buildUrl + "/7556b54a465d31257cf10c352ed70f15.js.unityweb",
-        codeUrl: buildUrl + "/ef8fe35deb1e23de498eecbd156b779f.wasm.unityweb",
+        dataUrl: buildUrl + "/5b7293cc5e0a4497f1ffe2993aa5014e.data.unityweb",
+        frameworkUrl: buildUrl + "/d438ac41082fc0c6f76e6768ea698b33.js.unityweb",
+        codeUrl: buildUrl + "/84683c24f70ff04cb11feb57cac34135.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Tiny3D",
@@ -90,13 +92,12 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        config.devicePixelRatio = 1;
+        // config.devicePixelRatio = 1;
 
         // unityShowBanner('WebGL builds are not supported on mobile devices.');
       } 
-      // e
-      // lse {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+      // else {
+      //   // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
       //   canvas.style.width = "960px";
       //   canvas.style.height = "600px";
@@ -108,144 +109,163 @@
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
+        //   progressBarFull.style.width = 100 * progress + "%";
+        // }).then((unityInstance) => {
+        //   loadingBar.style.display = "none";
+        //   fullscreenButton.onclick = () => {
+        //     unityInstance.SetFullscreen(1);
+        //   };
+        // }).catch((message) => {
+        //   alert(message);
         });
       };
       document.body.appendChild(script);
     </script>
-   <script>
-    // UNITY FUNCTIONS
-    function LevelEndJs(){
-      document.getElementById("banner").style.zIndex='1';
-      document.getElementById("banner").style.opacity='1';
-      document.getElementById("banner2").style.zIndex='1';
-      document.getElementById("banner2").style.opacity='1';
-      document.getElementById("CTAButton").style.display='flex';
-      document.getElementById("CTAButton1").style.display='none';
-    }
-    function LevelFailJs(){
-      document.getElementById("banner").style.zIndex='1';
-      document.getElementById("banner").style.opacity='1';
-      document.getElementById("banner2").style.zIndex='1';
-      document.getElementById("banner2").style.opacity='1';
-      document.getElementById("CTAButton").style.display='none';
-      document.getElementById("CTAButton1").style.display='flex';
-    }
-  </script>
-  <script>
-    // SKD FUNCTIONS
-    function CTAFunction(){
-      // window.playableSDK.openAppStore();
-      FbPlayableAd.onCTAClick();
-    }
-  </script>
-  <style>
-    .banner{
-        z-index: -1;
-        position: absolute; 
-        top: 0;
-        left: 0; 
-        opacity: 0;
-        object-fit: cover;
+    <script>
+      // UNITY FUNCTIONS
+      function LevelEndJs(){
+        document.getElementById("banner").style.zIndex='1';
+        document.getElementById("banner").style.opacity='1';
+        document.getElementById("banner2").style.zIndex='1';
+        document.getElementById("banner2").style.opacity='1';
+        document.getElementById("CTAButton").style.display='flex';
+        document.getElementById("CTAButton1").style.display='none';
+      }
+      function LevelFailJs(){
+        document.getElementById("banner").style.zIndex='1';
+        document.getElementById("banner").style.opacity='1';
+        document.getElementById("banner2").style.zIndex='1';
+        document.getElementById("banner2").style.opacity='1';
+        document.getElementById("CTAButton").style.display='none';
+        document.getElementById("CTAButton1").style.display='flex';
+      }
+    </script>
+    <script>
+      // UNITY FUNCTIONS
+      function LevelEndJs(){
+        document.getElementById("banner").style.zIndex='1';
+        document.getElementById("banner").style.opacity='1';
+        document.getElementById("banner2").style.zIndex='1';
+        document.getElementById("banner2").style.opacity='1';
+        document.getElementById("CTAButton").style.display='flex';
+        document.getElementById("CTAButton1").style.display='none';
+      }
+      function LevelFailJs(){
+        document.getElementById("banner").style.zIndex='1';
+        document.getElementById("banner").style.opacity='1';
+        document.getElementById("banner2").style.zIndex='1';
+        document.getElementById("banner2").style.opacity='1';
+        document.getElementById("CTAButton").style.display='none';
+        document.getElementById("CTAButton1").style.display='flex';
+      }
+    </script>
+    <script>
+      // SKD FUNCTIONS
+      function CTAFunction(){
+        // window.playableSDK.openAppStore();
+        FbPlayableAd.onCTAClick();
+      }
+    </script>
+    <style>
+      .banner{
+          z-index: -1;
+          position: absolute; 
+          top: 0;
+          left: 0; 
+          opacity: 0;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          transition: 0.5s;
+        }
+        .banner2{
+          z-index: -1;
+          position: absolute; 
+          top: 0;
+          left: 0; 
+          opacity: 0;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          transition: 0.5s;
+        }
+      #unity-canvas{
         width: 100%;
         height: 100%;
-        transition: 0.5s;
-      }
-      .banner2{
-        z-index: -1;
-        position: absolute; 
+        position: absolute;
         top: 0;
-        left: 0; 
-        opacity: 0;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        transition: 0.5s;
+        left: 0;
       }
+      #CTAButton{
+        z-index: 1;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+      }
+      #CTAButton button{
+        margin: auto;
+        height: 50px;
+        width: 125px;
+        border-radius: 1rem;
+        border: none;
+        background: rgb(157,204,207);
+        background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+        font-weight: bold;
+      }
+      #CTAButton1{
+        display: none;
+        z-index: 1;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      #CTAButton1 button{
+        margin: auto;
+        height: 50px;
+        width: 125px;
+        border-radius: 1rem;
+        border: none;
+        background: rgb(157,204,207);
+        background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+        font-weight: bold;
+      }
+  @media only screen and (max-width: 600px){
     #unity-canvas{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+      /* border: 1px solid red; */
+      height: 100vh;
     }
-    #CTAButton{
-      z-index: 1;
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 100vw;
-      height: 100px;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
+    .banner{
+      display: block;
     }
-    #CTAButton button{
-      margin: auto;
-      height: 50px;
-      width: 125px;
-      border-radius: 1rem;
-      border: none;
-      background: rgb(157,204,207);
-      background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      color: white;
-      font-weight: bold;
-    }
-    #CTAButton1{
+    .banner2{
       display: none;
-      z-index: 1;
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 100vw;
-      height: 100px;
-      background-color: rgba(0, 0, 0, 0.5);
     }
-    #CTAButton1 button{
-      margin: auto;
-      height: 50px;
-      width: 125px;
-      border-radius: 1rem;
-      border: none;
-      background: rgb(157,204,207);
-      background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      color: white;
-      font-weight: bold;
+  }
+  
+  @media only screen and (min-width: 600px){
+    #unity-canvas{
+      height: 100%;
+      /* border: 1px solid black; */
+      /* height: 50%; */
     }
-@media only screen and (max-width: 600px){
-  #unity-canvas{
-    /* border: 1px solid red; */
-    height: 100vh;
+    .banner{
+      display: none;
+    }
+    .banner2{
+      display: block;
+    }
   }
-  .banner{
-    display: block;
-  }
-  .banner2{
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 600px){
-  #unity-canvas{
-    height: 100%;
-    /* border: 1px solid black; */
-    /* height: 50%; */
-  }
-  .banner{
-    display: none;
-  }
-  .banner2{
-    display: block;
-  }
-}
-  </style>
+    </style>
   </body>
 </html>
