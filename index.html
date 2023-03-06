@@ -3,16 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>PlayAble-Ad</title>
-    <!-- <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css"> -->
+    <title>Playble-Ad</title>
   </head>
   <body>
     <img onclick="CTAFunction()" class="banner" id="banner" src="/Vertical.webp"/>
-      <img onclick="CTAFunction()" class="banner2" id="banner2" src="/Horizontal.webp"/>
-      <div id="CTAButton" ><button onclick="CTAFunction()" >DOWNLOAD NOW</button></div>
-      <div id="CTAButton1" ><button onclick="CTAFunction()" >TRY AGAIN</button></div>
-      <!-- <script src="https://sf16-muse-va.ibytedtos.com/obj/union-fe-nc-i18n/playable/sdk/playable-sdk.js" ></script> -->
+    <img onclick="CTAFunction()" class="banner2" id="banner2" src="/Horizontal.webp"/>
+    <div id="CTAButton" ><button onclick="CTAFunction()" >DOWNLOAD NOW</button></div>
+    <div id="CTAButton1" ><button onclick="CTAFunction()" >TRY AGAIN</button></div>
+    <!-- <script src="https://sf16-muse-va.ibytedtos.com/obj/union-fe-nc-i18n/playable/sdk/playable-sdk.js" ></script> -->
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -20,12 +18,6 @@
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Tiny3D</div>
       </div>
     </div>
     <script>
@@ -61,9 +53,9 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Ad2_FPS.loader.js";
+      var loaderUrl = buildUrl + "/Ads_.loader.js";
       var config = {
-        dataUrl: buildUrl + "/5b7293cc5e0a4497f1ffe2993aa5014e.data.unityweb",
+        dataUrl: buildUrl + "/1d7e04f1c678cf3028f28618d5338398.data.unityweb",
         frameworkUrl: buildUrl + "/d438ac41082fc0c6f76e6768ea698b33.js.unityweb",
         codeUrl: buildUrl + "/84683c24f70ff04cb11feb57cac34135.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
@@ -95,13 +87,12 @@
         // config.devicePixelRatio = 1;
 
         // unityShowBanner('WebGL builds are not supported on mobile devices.');
-      } 
-      // else {
-      //   // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-      //   canvas.style.width = "960px";
-      //   canvas.style.height = "600px";
-      // }
+        // canvas.style.width = "960px";
+        // canvas.style.height = "600px";
+      }
 
       loadingBar.style.display = "block";
 
