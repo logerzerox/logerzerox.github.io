@@ -74,10 +74,10 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Playable-Ad.loader.js";
       var config = {
-        dataUrl: buildUrl + "/b452d9bad83f36fa41aca5c0b030c3ad.data.unityweb",
+        dataUrl: buildUrl + "/95f19b42342b1f7cf0f5107675c4fbce.data.unityweb",
         frameworkUrl:
           buildUrl + "/df124aadc77716cda99af09ddd97b12a.js.unityweb",
-        codeUrl: buildUrl + "/94944fb93e953b8c8c39f70f9fd3ae48.wasm.unityweb",
+        codeUrl: buildUrl + "/7014f6993e16c482fbd1029be8d469f1.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Playable-Ad",
@@ -105,18 +105,16 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        config.devicePixelRatio = 1;
 
-        // unityShowBanner("WebGL builds are not supported on mobile devices.");
+        // unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        // canvas.style.width = "960px";
+        // canvas.style.height = "600px";
       }
-      // else {
-      //   // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-      //   canvas.style.width = "960px";
-      //   canvas.style.height = "600px";
-      // }
-
-      // loadingBar.style.display = "block";
+      loadingBar.style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
@@ -144,7 +142,9 @@
         document.getElementById("CTAButton").style.display = "flex";
         document.getElementById("CTAButton1").style.display = "none";
         document.getElementById("RedBorder").style.display = "flex";
-        console.log("wat");
+        setTimeout(() => {
+          document.getElementById("RedBorder").style.display = "flex";
+        }, 500);
       }
       function LevelFailJs() {
         document.getElementById("banner").style.zIndex = "1";
@@ -153,6 +153,9 @@
         document.getElementById("banner2").style.opacity = "1";
         document.getElementById("CTAButton").style.display = "none";
         document.getElementById("CTAButton1").style.display = "flex";
+        setTimeout(() => {
+          document.getElementById("RedBorder").style.display = "flex";
+        }, 500);
       }
     </script>
     <script>
