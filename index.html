@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Playble-Ad</title>
   </head>
   <body>
-    <img onclick="CTAFunction()" class="banner" id="banner" src="/Vertical.webp"/>
-    <img onclick="CTAFunction()" class="banner2" id="banner2" src="/Horizontal.webp"/>
-    <div id="CTAButton" ><button onclick="CTAFunction()" >DOWNLOAD NOW</button></div>
-    <div id="CTAButton1" ><button onclick="CTAFunction()" >TRY AGAIN</button></div>
-    <!-- <script src="https://sf16-muse-va.ibytedtos.com/obj/union-fe-nc-i18n/playable/sdk/playable-sdk.js" ></script> -->
+    <img
+      onclick="CTAFunction()"
+      class="banner"
+      id="banner"
+      src="/Vertical.webp"
+    />
+    <img
+      onclick="CTAFunction()"
+      class="banner2"
+      id="banner2"
+      src="/Horizontal.webp"
+    />
+    <div id="CTAButton">
+      <button onclick="CTAFunction()">DOWNLOAD NOW</button>
+    </div>
+    <div id="RedBorder">
+      <button onclick="CTAFunction()">TRY IT NOW</button>
+    </div>
+    <div id="CTAButton1">
+      <button onclick="CTAFunction()">TRY AGAIN</button>
+    </div>
+    <!-- <script src="https://sf16-muse-va.ibytedtos.com/obj/union-fe-nc-i18n/playable/sdk/playable-sdk.js"></script> -->
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -36,15 +53,18 @@
       // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+          warningBanner.style.display = warningBanner.children.length
+            ? "block"
+            : "none";
         }
-        var div = document.createElement('div');
+        var div = document.createElement("div");
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        if (type == "error") div.style = "background: red; padding: 10px;";
         else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          if (type == "warning")
+            div.style = "background: yellow; padding: 10px;";
+          setTimeout(function () {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -53,14 +73,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Ads_.loader.js";
+      var loaderUrl = buildUrl + "/Test_Without_TMP.loader.js";
       var config = {
-        dataUrl: buildUrl + "/1d7e04f1c678cf3028f28618d5338398.data.unityweb",
-        frameworkUrl: buildUrl + "/d438ac41082fc0c6f76e6768ea698b33.js.unityweb",
-        codeUrl: buildUrl + "/84683c24f70ff04cb11feb57cac34135.wasm.unityweb",
+        dataUrl: buildUrl + "/b22197861ab6d428329d5ef194532c16.data.unityweb",
+        frameworkUrl:
+          buildUrl + "/df124aadc77716cda99af09ddd97b12a.js.unityweb",
+        codeUrl: buildUrl + "/94944fb93e953b8c8c39f70f9fd3ae48.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Tiny3D",
+        productName: "Playable-Ad",
         productVersion: "0.1",
         // showBanner: unityShowBanner,
       };
@@ -75,119 +96,180 @@
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+        var meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content =
+          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+        document.getElementsByTagName("head")[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        config.devicePixelRatio = 1;
 
-        // unityShowBanner('WebGL builds are not supported on mobile devices.');
+        // unityShowBanner("WebGL builds are not supported on mobile devices.");
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
         // canvas.style.width = "960px";
         // canvas.style.height = "600px";
       }
 
-      loadingBar.style.display = "block";
+      // loadingBar.style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-        //   progressBarFull.style.width = 100 * progress + "%";
-        // }).then((unityInstance) => {
-        //   loadingBar.style.display = "none";
-        //   fullscreenButton.onclick = () => {
-        //     unityInstance.SetFullscreen(1);
-        //   };
-        // }).catch((message) => {
-        //   alert(message);
+          //   progressBarFull.style.width = 100 * progress + "%";
+          // }).then((unityInstance) => {
+          //   loadingBar.style.display = "none";
+          //   fullscreenButton.onclick = () => {
+          //     unityInstance.SetFullscreen(1);
+          //   };
+          // }).catch((message) => {
+          //   alert(message);
         });
       };
       document.body.appendChild(script);
     </script>
     <script>
       // UNITY FUNCTIONS
-      function LevelEndJs(){
-        document.getElementById("banner").style.zIndex='1';
-        document.getElementById("banner").style.opacity='1';
-        document.getElementById("banner2").style.zIndex='1';
-        document.getElementById("banner2").style.opacity='1';
-        document.getElementById("CTAButton").style.display='flex';
-        document.getElementById("CTAButton1").style.display='none';
+      function LevelEndJs() {
+        document.getElementById("banner").style.zIndex = "1";
+        document.getElementById("banner").style.opacity = "1";
+        document.getElementById("banner2").style.zIndex = "1";
+        document.getElementById("banner2").style.opacity = "1";
+        document.getElementById("CTAButton").style.display = "flex";
+        document.getElementById("CTAButton1").style.display = "none";
+        document.getElementById("RedBorder").style.display = "flex";
+        console.log("wat");
       }
-      function LevelFailJs(){
-        document.getElementById("banner").style.zIndex='1';
-        document.getElementById("banner").style.opacity='1';
-        document.getElementById("banner2").style.zIndex='1';
-        document.getElementById("banner2").style.opacity='1';
-        document.getElementById("CTAButton").style.display='none';
-        document.getElementById("CTAButton1").style.display='flex';
-      }
-    </script>
-    <script>
-      // UNITY FUNCTIONS
-      function LevelEndJs(){
-        document.getElementById("banner").style.zIndex='1';
-        document.getElementById("banner").style.opacity='1';
-        document.getElementById("banner2").style.zIndex='1';
-        document.getElementById("banner2").style.opacity='1';
-        document.getElementById("CTAButton").style.display='flex';
-        document.getElementById("CTAButton1").style.display='none';
-      }
-      function LevelFailJs(){
-        document.getElementById("banner").style.zIndex='1';
-        document.getElementById("banner").style.opacity='1';
-        document.getElementById("banner2").style.zIndex='1';
-        document.getElementById("banner2").style.opacity='1';
-        document.getElementById("CTAButton").style.display='none';
-        document.getElementById("CTAButton1").style.display='flex';
+      function LevelFailJs() {
+        document.getElementById("banner").style.zIndex = "1";
+        document.getElementById("banner").style.opacity = "1";
+        document.getElementById("banner2").style.zIndex = "1";
+        document.getElementById("banner2").style.opacity = "1";
+        document.getElementById("CTAButton").style.display = "none";
+        document.getElementById("CTAButton1").style.display = "flex";
       }
     </script>
     <script>
       // SKD FUNCTIONS
-      function CTAFunction(){
-        // window.playableSDK.openAppStore();
+      function CTAFunction() {
         FbPlayableAd.onCTAClick();
+        // window.playableSDK.openAppStore();
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Huawei Phone must come first because its UA also contains "Android"
+        if (userAgent.includes("HUAWEI")) {
+          window.location.replace(
+            "https://play.google.com/store/apps/details?id=mu.cluster.app&referrer=adjust_reftag%3DcoZTLOTNq3DIr%26utm_source%3DCR_welcome_android%26utm_campaign%3Dtop"
+          );
+        } else if (userAgent.includes("Android")) {
+          window.location.replace(
+            "https://play.google.com/store/apps/details?id=mu.cluster.app&referrer=adjust_reftag%3DcoZTLOTNq3DIr%26utm_source%3DCR_welcome_android%26utm_campaign%3Dtop"
+          );
+        } else if (userAgent.includes("iPhone")) {
+          window.location.replace(
+            "https://apps.apple.com/app/id1490075175?mt=8&l=ja"
+          );
+        } else {
+          //cant be sure about device, so redirect to home page
+          window.location.replace(
+            "https://play.google.com/store/apps/details?id=mu.cluster.app&referrer=adjust_reftag%3DcoZTLOTNq3DIr%26utm_source%3DCR_welcome_android%26utm_campaign%3Dtop"
+          );
+        }
+
+        // var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        // if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        //   window.location.href =
+        //     "https://apps.apple.com/app/id1490075175?mt=8&l=ja";
+        // } else {
+        //   window.location.href =
+        //     "https://play.google.com/store/apps/details?id=mu.cluster.app&referrer=adjust_reftag%3DcoZTLOTNq3DIr%26utm_source%3DCR_welcome_android%26utm_campaign%3Dtop";
+        // }
       }
     </script>
     <style>
-      .banner{
-          z-index: -1;
-          position: absolute; 
-          top: 0;
-          left: 0; 
-          opacity: 0;
-          object-fit: cover;
-          width: 100%;
-          height: 100%;
-          transition: 0.5s;
+      @keyframes leaves {
+        0% {
+          transform: scale(0.75);
         }
-        .banner2{
-          z-index: -1;
-          position: absolute; 
-          top: 0;
-          left: 0; 
-          opacity: 0;
-          object-fit: cover;
-          width: 100%;
-          height: 100%;
-          transition: 0.5s;
+        100% {
+          transform: scale(1.25);
         }
-      #unity-canvas{
+      }
+      #RedBorder {
+        display: none;
+        margin: auto;
+        position: absolute;
+        border: 5px solid red;
+        background: rgb(157, 204, 207);
+        background: linear-gradient(
+          0deg,
+          rgba(157, 204, 207, 1) 0%,
+          rgba(218, 165, 230, 1) 100%
+        );
+        z-index: 1;
+        width: 200px;
+        height: 125px;
+        border-radius: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+        vertical-align: middle;
+        animation: leaves 1s linear infinite alternate;
+        -webkit-animation: leaves 1s infinite alternate;
+      }
+      #RedBorder button {
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-weight: bolder;
+        font-size: xx-large;
+        background-color: transparent;
+        border: none;
+      }
+      .banner {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+      }
+      .banner2 {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+      }
+      #unity-canvas {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
       }
-      #CTAButton{
+      #CTAButton {
         z-index: 1;
         position: absolute;
         bottom: 0px;
@@ -197,19 +279,24 @@
         background-color: rgba(0, 0, 0, 0.5);
         display: flex;
       }
-      #CTAButton button{
+      #CTAButton button {
         margin: auto;
         height: 50px;
         width: 125px;
         border-radius: 1rem;
         border: none;
-        background: rgb(157,204,207);
-        background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background: rgb(157, 204, 207);
+        background: linear-gradient(
+          0deg,
+          rgba(157, 204, 207, 1) 0%,
+          rgba(218, 165, 230, 1) 100%
+        );
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         color: white;
         font-weight: bold;
       }
-      #CTAButton1{
+      #CTAButton1 {
         display: none;
         z-index: 1;
         position: absolute;
@@ -219,44 +306,49 @@
         height: 100px;
         background-color: rgba(0, 0, 0, 0.5);
       }
-      #CTAButton1 button{
+      #CTAButton1 button {
         margin: auto;
         height: 50px;
         width: 125px;
         border-radius: 1rem;
         border: none;
-        background: rgb(157,204,207);
-        background: linear-gradient(0deg, rgba(157,204,207,1) 0%, rgba(218,165,230,1) 100%);
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background: rgb(157, 204, 207);
+        background: linear-gradient(
+          0deg,
+          rgba(157, 204, 207, 1) 0%,
+          rgba(218, 165, 230, 1) 100%
+        );
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         color: white;
         font-weight: bold;
       }
-  @media only screen and (max-width: 600px){
-    #unity-canvas{
-      /* border: 1px solid red; */
-      height: 100vh;
-    }
-    .banner{
-      display: block;
-    }
-    .banner2{
-      display: none;
-    }
-  }
-  
-  @media only screen and (min-width: 600px){
-    #unity-canvas{
-      height: 100%;
-      /* border: 1px solid black; */
-      /* height: 50%; */
-    }
-    .banner{
-      display: none;
-    }
-    .banner2{
-      display: block;
-    }
-  }
+      @media only screen and (max-width: 600px) {
+        #unity-canvas {
+          /* border: 1px solid red; */
+          height: 100vh;
+        }
+        .banner {
+          display: block;
+        }
+        .banner2 {
+          display: none;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        #unity-canvas {
+          height: 100%;
+          /* border: 1px solid black; */
+          /* height: 50%; */
+        }
+        .banner {
+          display: none;
+        }
+        .banner2 {
+          display: block;
+        }
+      }
     </style>
   </body>
 </html>
