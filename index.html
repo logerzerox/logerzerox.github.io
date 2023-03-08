@@ -22,12 +22,11 @@
       <button onclick="CTAFunction()">DOWNLOAD NOW</button>
     </div>
     <div id="RedBorder">
-      <button onclick="CTAFunction()">TRY IT NOW</button>
+      <button onclick="CTAFunction()">今すぐ体験する</button>
     </div>
     <div id="CTAButton1">
       <button onclick="CTAFunction()">TRY AGAIN</button>
     </div>
-    <!-- <script src="https://sf16-muse-va.ibytedtos.com/obj/union-fe-nc-i18n/playable/sdk/playable-sdk.js"></script> -->
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -73,9 +72,9 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Test_Without_TMP.loader.js";
+      var loaderUrl = buildUrl + "/Playable-Ad.loader.js";
       var config = {
-        dataUrl: buildUrl + "/b22197861ab6d428329d5ef194532c16.data.unityweb",
+        dataUrl: buildUrl + "/b452d9bad83f36fa41aca5c0b030c3ad.data.unityweb",
         frameworkUrl:
           buildUrl + "/df124aadc77716cda99af09ddd97b12a.js.unityweb",
         codeUrl: buildUrl + "/94944fb93e953b8c8c39f70f9fd3ae48.wasm.unityweb",
@@ -106,14 +105,16 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        config.devicePixelRatio = 1;
+        // config.devicePixelRatio = 1;
 
         // unityShowBanner("WebGL builds are not supported on mobile devices.");
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        // canvas.style.width = "960px";
-        // canvas.style.height = "600px";
       }
+      // else {
+      //   // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+      //   canvas.style.width = "960px";
+      //   canvas.style.height = "600px";
+      // }
 
       // loadingBar.style.display = "block";
 
@@ -157,7 +158,7 @@
     <script>
       // SKD FUNCTIONS
       function CTAFunction() {
-        FbPlayableAd.onCTAClick();
+        // FbPlayableAd.onCTAClick();
         // window.playableSDK.openAppStore();
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -205,15 +206,15 @@
         margin: auto;
         position: absolute;
         border: 5px solid red;
-        background: rgb(157, 204, 207);
+        background: rgb(123, 245, 255);
         background: linear-gradient(
           0deg,
-          rgba(157, 204, 207, 1) 0%,
-          rgba(218, 165, 230, 1) 100%
+          rgba(123, 245, 255, 1) 0%,
+          rgba(93, 154, 249, 1) 83%
         );
         z-index: 1;
         width: 200px;
-        height: 125px;
+        height: 75px;
         border-radius: 2rem;
         margin-left: auto;
         margin-right: auto;
@@ -229,6 +230,7 @@
         -webkit-animation: leaves 1s infinite alternate;
       }
       #RedBorder button {
+        color: white;
         margin: auto;
         position: absolute;
         left: 0;
@@ -236,7 +238,7 @@
         top: 0;
         bottom: 0;
         font-weight: bolder;
-        font-size: xx-large;
+        font-size: x-large;
         background-color: transparent;
         border: none;
       }
